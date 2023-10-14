@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bf8b9a1108a54e0893af40ca6c2bfe67" Name="Diagram1">
+        <EntityTypeShape EntityType="NbaBaseModel.ActionType" Width="1.5" PointX="10.5" PointY="4.875" />
+        <EntityTypeShape EntityType="NbaBaseModel.Admin" Width="1.5" PointX="12" PointY="1" />
+        <EntityTypeShape EntityType="NbaBaseModel.Conference" Width="1.5" PointX="0.75" PointY="8.875" />
+        <EntityTypeShape EntityType="NbaBaseModel.Country" Width="1.5" PointX="3" PointY="4.75" />
+        <EntityTypeShape EntityType="NbaBaseModel.Division" Width="1.5" PointX="3" PointY="8.75" />
+        <EntityTypeShape EntityType="NbaBaseModel.Matchup" Width="1.5" PointX="10.5" PointY="7.625" />
+        <EntityTypeShape EntityType="NbaBaseModel.MatchupDetail" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="NbaBaseModel.MatchupLog" Width="1.5" PointX="12.75" PointY="8" />
+        <EntityTypeShape EntityType="NbaBaseModel.MatchupType" Width="1.5" PointX="7.75" PointY="11.75" />
+        <EntityTypeShape EntityType="NbaBaseModel.Pictures" Width="1.5" PointX="12.75" PointY="4.75" />
+        <EntityTypeShape EntityType="NbaBaseModel.Player" Width="1.5" PointX="5.25" PointY="2.125" />
+        <EntityTypeShape EntityType="NbaBaseModel.PlayerInTeam" Width="1.5" PointX="7.5" PointY="4.25" />
+        <EntityTypeShape EntityType="NbaBaseModel.PlayerStatistics" Width="1.5" PointX="15.75" PointY="7.125" />
+        <EntityTypeShape EntityType="NbaBaseModel.Position" Width="1.5" PointX="3" PointY="2.125" />
+        <EntityTypeShape EntityType="NbaBaseModel.PostSeason" Width="1.5" PointX="7.5" PointY="8.5" />
+        <EntityTypeShape EntityType="NbaBaseModel.Role" Width="1.5" PointX="9.75" PointY="1.5" />
+        <EntityTypeShape EntityType="NbaBaseModel.Season" Width="1.5" PointX="5.25" PointY="13.125" />
+        <EntityTypeShape EntityType="NbaBaseModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="12.75" />
+        <EntityTypeShape EntityType="NbaBaseModel.Team" Width="1.5" PointX="5.25" PointY="7.875" />
+        <AssociationConnector Association="NbaBaseModel.FK_MatchupLog_ActionType" />
+        <AssociationConnector Association="NbaBaseModel.FK_Admin_RoleId" />
+        <AssociationConnector Association="NbaBaseModel.FK_Division_Conference" />
+        <AssociationConnector Association="NbaBaseModel.FK_Player_Country" />
+        <AssociationConnector Association="NbaBaseModel.FK_Team_Division" />
+        <AssociationConnector Association="NbaBaseModel.FK_Matchup_Season" />
+        <AssociationConnector Association="NbaBaseModel.FK_Matchup_Team" />
+        <AssociationConnector Association="NbaBaseModel.FK_Matchup_Team1" />
+        <AssociationConnector Association="NbaBaseModel.FK_MatchupLog_Matchup" />
+        <AssociationConnector Association="NbaBaseModel.FK_PlayerStatistics_Matchup" />
+        <AssociationConnector Association="NbaBaseModel.FK_MatchupLog_Player" />
+        <AssociationConnector Association="NbaBaseModel.FK_MatchupLog_Team" />
+        <AssociationConnector Association="NbaBaseModel.FK_Player_Position" />
+        <AssociationConnector Association="NbaBaseModel.FK_PlayerInTeam_Player" />
+        <AssociationConnector Association="NbaBaseModel.FK_PlayerStatistics_Player" />
+        <AssociationConnector Association="NbaBaseModel.FK_PlayerInTeam_Season" />
+        <AssociationConnector Association="NbaBaseModel.FK_PlayerInTeam_Team" />
+        <AssociationConnector Association="NbaBaseModel.FK_PlayerStatistics_Team" />
+        <AssociationConnector Association="NbaBaseModel.FK_PostSeason_Season" />
+        <AssociationConnector Association="NbaBaseModel.FK_PostSeason_Season1" />
+        <AssociationConnector Association="NbaBaseModel.FK_PostSeason_Team" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
