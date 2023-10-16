@@ -25,7 +25,6 @@ namespace NBApp.Pages
         {
             InitializeComponent();
             IEnumerable<Team> filterTeam = App.DB.Team.Where(x => x.Division.ConferenceId == 2).ToList();
-            filterTeam = filterTeam.OrderBy(x => x.Division.Name);
             filterTeam = filterTeam.OrderBy(x => x.TeamName);
             LvEastern.ItemsSource = filterTeam;
         }

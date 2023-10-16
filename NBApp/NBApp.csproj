@@ -114,6 +114,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NbaBaseModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Components\PartialClasses\Player.cs" />
     <Compile Include="Components\Pictures.cs">
       <DependentUpon>NbaBaseModel.tt</DependentUpon>
     </Compile>
@@ -148,6 +149,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AdditionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\EasternTeamPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -170,6 +175,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\AdditionPage.xaml.cs">
+      <DependentUpon>AdditionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\EasternTeamPage.xaml.cs">
       <DependentUpon>EasternTeamPage.xaml</DependentUpon>
     </Compile>

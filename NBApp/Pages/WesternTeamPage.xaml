@@ -27,6 +27,11 @@
                             <TextBlock Text="{Binding Coach, StringFormat='Тренер: {0}'}"/>
                             <TextBlock Text="{Binding Division.Name, StringFormat='Дивизион: {0}'}"/>
                             <TextBlock Text="{Binding Stadium, StringFormat='Стадион: {0}'}"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="RosterBtn" Content="Roster" Width="50"/>
+                                <Button x:Name="MatchupBtn" Content="Matchup" Width="60" Margin="5 0 0 0"/>
+                                <Button x:Name="LineUpbtn" Content="Lineup" Width="50" Margin="5 0 0 0"/>
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>
