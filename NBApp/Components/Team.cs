@@ -32,6 +32,7 @@ namespace NBApp.Components
         public string Abbr { get; set; }
         public string Stadium { get; set; }
         public string Logo { get; set; }
+        public byte[] MainImage { get; set; }
     
         public virtual Division Division { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

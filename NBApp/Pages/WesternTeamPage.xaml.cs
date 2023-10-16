@@ -1,7 +1,6 @@
 ﻿using NBApp.Components;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,19 +17,17 @@ using System.Windows.Shapes;
 namespace NBApp.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для EasternTeamPage.xaml
+    /// Логика взаимодействия для WesternTeamPage.xaml
     /// </summary>
-    public partial class EasternTeamPage : Page
+    public partial class WesternTeamPage : Page
     {
-        public EasternTeamPage()
+        public WesternTeamPage()
         {
             InitializeComponent();
-
-            IEnumerable<Team> filterTeam = App.DB.Team.Where(x => x.Division.ConferenceId == 1).ToList();
+            IEnumerable<Team> filterTeam = App.DB.Team.Where(x => x.Division.ConferenceId == 2).ToList();
             filterTeam = filterTeam.OrderBy(x => x.Division.Name);
             filterTeam = filterTeam.OrderBy(x => x.TeamName);
             LvEastern.ItemsSource = filterTeam;
-
         }
     }
 }

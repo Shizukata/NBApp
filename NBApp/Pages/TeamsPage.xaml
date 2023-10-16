@@ -14,6 +14,8 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Button Content="Back" Width="100" HorizontalAlignment="Left" Click="BackButton_Click"/>
+        <Button HorizontalAlignment="Left" Margin="200 0 0 0" Width="200" Content="Eastern teams" Click="EasternButton_Click"/>
+        <Button HorizontalAlignment="Left" Margin="500 0 0 0" Width="200" Content="Western teams" Click="WesternButton_Click"/>
         <Frame x:Name="TeamsFrame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Page>

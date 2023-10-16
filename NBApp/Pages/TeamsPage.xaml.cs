@@ -32,5 +32,15 @@ namespace NBApp.Pages
         {
             NavigationService.GoBack();
         }
+
+        private void EasternButton_Click(object sender, RoutedEventArgs e)
+        {
+            TeamsFrame.Navigate(new EasternTeamPage());
+        }
+
+        private void WesternButton_Click(object sender, RoutedEventArgs e)
+        {
+            TeamsFrame.Navigate(new WesternTeamPage());
+        }
     }
 }

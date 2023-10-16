@@ -208,6 +208,7 @@
           <Property Name="Abbr" Type="char" MaxLength="3" Nullable="false" />
           <Property Name="Stadium" Type="varchar" MaxLength="100" />
           <Property Name="Logo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MainImage" Type="image" />
         </EntityType>
         <Association Name="FK_Admin_RoleId">
           <End Role="Role" Type="Self.Role" Multiplicity="1" />
@@ -913,6 +914,7 @@
           <Property Name="Abbr" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
           <Property Name="Stadium" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Logo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MainImage" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Division" Relationship="NbaBaseModel.FK_Team_Division" FromRole="Team" ToRole="Division" />
           <NavigationProperty Name="Matchup" Relationship="NbaBaseModel.FK_Matchup_Team" FromRole="Team" ToRole="Matchup" />
           <NavigationProperty Name="Matchup1" Relationship="NbaBaseModel.FK_Matchup_Team1" FromRole="Team" ToRole="Matchup" />
@@ -1173,7 +1175,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1392,6 +1394,7 @@
           <EntitySetMapping Name="Team">
             <EntityTypeMapping TypeName="NbaBaseModel.Team">
               <MappingFragment StoreEntitySet="Team">
+                <ScalarProperty Name="MainImage" ColumnName="MainImage" />
                 <ScalarProperty Name="Logo" ColumnName="Logo" />
                 <ScalarProperty Name="Stadium" ColumnName="Stadium" />
                 <ScalarProperty Name="Abbr" ColumnName="Abbr" />
