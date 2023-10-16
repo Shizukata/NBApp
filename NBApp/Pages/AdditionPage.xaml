@@ -20,7 +20,7 @@
                                 <DataGridTextColumn Header="Позиция" Binding="{Binding Position.Name}"/>
                                 <DataGridTextColumn Header="Дата рождения" Binding="{Binding Player.DateOfBirth}"/>
                                 <DataGridTextColumn Header="Колледж" Binding="{Binding College}"/>
-                                <DataGridTextColumn Header="Стаж" Binding="{Binding ShirtNumber}"/>
+                                <DataGridTextColumn Header="Стаж" Binding="{Binding Experience}"/>
                                 <DataGridTextColumn Header="Зарплата (млн $)" Binding="{Binding Salary}"/>
                             </DataGrid.Columns>
                         </DataGrid>
