@@ -23,13 +23,13 @@
                         <StackPanel>
                             <DataGrid x:Name="DtPlayers" Height="330" AutoGenerateColumns="False" IsReadOnly="True">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Номер" Binding="{Binding ShirtNumber}"/>
-                                    <DataGridTextColumn Header="Игрок" Binding="{Binding Player.Name}"/>
-                                    <DataGridTextColumn Header="Позиция" Binding="{Binding Player.Position.Abbr}"/>
-                                    <DataGridTextColumn Header="Дата рождения" Binding="{Binding Player.DateOfBirth, StringFormat=' dd.MM.yyyy'}"/>
-                                    <DataGridTextColumn Header="Колледж" Binding="{Binding College}"/>
-                                    <DataGridTextColumn Header="Стаж" Binding="{Binding Player.Experience, StringFormat=' {0} лет'}"/>
-                                    <DataGridTextColumn Header="Зарплата (млн $)" Binding="{Binding Salary}"/>
+                                    <DataGridTextColumn Header="No" Binding="{Binding ShirtNumber}"/>
+                                    <DataGridTextColumn Header="Player" Binding="{Binding Player.Name}"/>
+                                    <DataGridTextColumn Header="Position" Binding="{Binding Player.Position.Abbr}"/>
+                                    <DataGridTextColumn Header="DateOfBirth" Binding="{Binding Player.DateOfBirth, StringFormat=' dd.MM.yyyy'}"/>
+                                    <DataGridTextColumn Header="College" Binding="{Binding College}"/>
+                                    <DataGridTextColumn Header="Experience" Binding="{Binding Player.Experience, StringFormat=' {0} years'}"/>
+                                    <DataGridTextColumn Header="Salary (mln $)" Binding="{Binding Salary}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </StackPanel>
@@ -41,18 +41,100 @@
                                     <DataGridTextColumn Header="Date" Binding="{Binding Starttime,StringFormat=' dd.MM.yyyy'}"/>
                                     <DataGridTextColumn Header="Matchup Type" Binding="{Binding MatchupType.Name}"/>
                                     <DataGridTextColumn Header="Opponent" Binding="{Binding Team.TeamName}"/>
-                                    <DataGridTextColumn Header="Start Time" Binding="{Binding Starttime, StringFormat=' hh:mm'}"/>
-                                    <DataGridTextColumn Header="Result" Binding="{Binding College}"/>
-                                    <DataGridTextColumn Header="Location" Binding="{Binding Player.Experience, StringFormat=' {0} лет'}"/>
-                                    <DataGridTextColumn Header="Status" Binding="{Binding Salary}"/>
+                                    <DataGridTextColumn Header="Start Time" Binding="{Binding Starttime, StringFormat=' hh:mm tt'}"/>
+                                    <DataGridTextColumn Header="Result" Binding="{Binding Scores}"/>
+                                    <DataGridTextColumn Header="Location" Binding="{Binding Location}"/>
+                                    <DataGridTextColumn Header="Status" Binding="{Binding StatusName}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </StackPanel>
                     </TabItem>
                     <TabItem Header="Lineup" FontSize="20" Width="100" x:Name="TabLineup">
-                        <StackPanel>
-                            
-                        </StackPanel>
+                        <Grid Height="320">
+                            <Grid.Background>
+                                <ImageBrush ImageSource="/Resources/lineup.jpg" Stretch="Fill"/>
+                            </Grid.Background>
+                            <Grid Width="200" Height="120" Margin="10 0 0 100" HorizontalAlignment="Left">
+                                <TextBlock Text="PF" Foreground="#FF0079FF" Panel.ZIndex="3" Background="#FFEDED89" Width="35" TextAlignment="Center" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <StackPanel>
+                                    <StackPanel.Background>
+                                        <SolidColorBrush Color="#FFC3C3C3" Opacity="0.8"/>
+                                    </StackPanel.Background>
+                                    <ListView x:Name="LvPF" Background="{x:Null}" d:ItemsSource="{d:SampleData ItemCount=4}" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0" Height="120" Width="160" HorizontalAlignment="Right">
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Player.Name}" Foreground="#FF0778F5" FontSize="14"/>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid Width="200" Height="120" Margin="80 200 0 0" HorizontalAlignment="Left">
+                                <TextBlock Text="SG" Foreground="#FF0079FF" Panel.ZIndex="3" Background="#FFEDED89" Width="35" TextAlignment="Center" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <StackPanel>
+                                    <StackPanel.Background>
+                                        <SolidColorBrush Color="#FFC3C3C3" Opacity="0.8"/>
+                                    </StackPanel.Background>
+                                    <ListView x:Name="LvSG" Background="{x:Null}" d:ItemsSource="{d:SampleData ItemCount=4}" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0" Height="120" Width="160" HorizontalAlignment="Right">
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Player.Name}" Foreground="#FF0778F5" FontSize="14"/>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid Width="200" Height="120" Margin="480 200 0 0" HorizontalAlignment="Left">
+                                <TextBlock Text="PG" Foreground="#FF0079FF" Panel.ZIndex="3" Background="#FFEDED89" Width="35" TextAlignment="Center" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <StackPanel>
+                                    <StackPanel.Background>
+                                        <SolidColorBrush Color="#FFC3C3C3" Opacity="0.8"/>
+                                    </StackPanel.Background>
+                                    <ListView x:Name="LvPg" Background="{x:Null}" d:ItemsSource="{d:SampleData ItemCount=4}" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0" Height="120" Width="160" HorizontalAlignment="Right">
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Player.Name}" Foreground="#FF0778F5" FontSize="14"/>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid Width="200" Height="120" Margin="540 0 0 100" HorizontalAlignment="Left">
+                                <TextBlock Text="SF" Foreground="#FF0079FF" Panel.ZIndex="3" Background="#FFEDED89" Width="35" TextAlignment="Center" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <StackPanel>
+                                    <StackPanel.Background>
+                                        <SolidColorBrush Color="#FFC3C3C3" Opacity="0.8"/>
+                                    </StackPanel.Background>
+                                    <ListView x:Name="LvSF" Background="{x:Null}" d:ItemsSource="{d:SampleData ItemCount=4}" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0" Height="120" Width="160" HorizontalAlignment="Right">
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Player.Name}" Foreground="#FF0778F5" FontSize="14"/>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid Width="200" Height="120" Margin="0 0 0 50" HorizontalAlignment="Center">
+                                <TextBlock Text="C" Foreground="#FF0079FF" Panel.ZIndex="3" Background="#FFEDED89" Width="35" TextAlignment="Center" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <StackPanel>
+                                    <StackPanel.Background>
+                                        <SolidColorBrush Color="#FFC3C3C3" Opacity="0.8"/>
+                                    </StackPanel.Background>
+                                    <ListView x:Name="LvC" Background="{x:Null}" d:ItemsSource="{d:SampleData ItemCount=4}" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0" Height="120" Width="160" HorizontalAlignment="Right">
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Player.Name}" Foreground="#FF0778F5" FontSize="14"/>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                </StackPanel>
+                            </Grid>
+
+                        </Grid>
                     </TabItem>
                 </TabControl>
                 <StackPanel Margin="00 0 0 40" Orientation="Horizontal" HorizontalAlignment="Right" Height="30" VerticalAlignment="Top">

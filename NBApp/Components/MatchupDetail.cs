@@ -19,5 +19,7 @@ namespace NBApp.Components
         public int Quarter { get; set; }
         public int Team_Away_Score { get; set; }
         public int Team_Home_Score { get; set; }
+    
+        public virtual Matchup Matchup { get; set; }
     }
 }

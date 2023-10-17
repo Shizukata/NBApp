@@ -234,6 +234,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Matchup_MatchupType">
+          <End Role="MatchupType" Type="Self.MatchupType" Multiplicity="1" />
+          <End Role="Matchup" Type="Self.Matchup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchupType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Matchup">
+              <PropertyRef Name="MatchupTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Matchup_Season">
           <End Role="Season" Type="Self.Season" Multiplicity="1" />
           <End Role="Matchup" Type="Self.Matchup" Multiplicity="*" />
@@ -267,6 +279,18 @@
             </Principal>
             <Dependent Role="Matchup">
               <PropertyRef Name="Team_Home" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatchupDetail_Matchup">
+          <End Role="Matchup" Type="Self.Matchup" Multiplicity="1" />
+          <End Role="MatchupDetail" Type="Self.MatchupDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Matchup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MatchupDetail">
+              <PropertyRef Name="MatchupId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -490,6 +514,10 @@
             <End Role="Conference" EntitySet="Conference" />
             <End Role="Division" EntitySet="Division" />
           </AssociationSet>
+          <AssociationSet Name="FK_Matchup_MatchupType" Association="Self.FK_Matchup_MatchupType">
+            <End Role="MatchupType" EntitySet="MatchupType" />
+            <End Role="Matchup" EntitySet="Matchup" />
+          </AssociationSet>
           <AssociationSet Name="FK_Matchup_Season" Association="Self.FK_Matchup_Season">
             <End Role="Season" EntitySet="Season" />
             <End Role="Matchup" EntitySet="Matchup" />
@@ -501,6 +529,10 @@
           <AssociationSet Name="FK_Matchup_Team1" Association="Self.FK_Matchup_Team1">
             <End Role="Team" EntitySet="Team" />
             <End Role="Matchup" EntitySet="Matchup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatchupDetail_Matchup" Association="Self.FK_MatchupDetail_Matchup">
+            <End Role="Matchup" EntitySet="Matchup" />
+            <End Role="MatchupDetail" EntitySet="MatchupDetail" />
           </AssociationSet>
           <AssociationSet Name="FK_MatchupLog_ActionType" Association="Self.FK_MatchupLog_ActionType">
             <End Role="ActionType" EntitySet="ActionType" />
@@ -611,6 +643,10 @@
             <End Role="Division" EntitySet="Division" />
             <End Role="Team" EntitySet="Team" />
           </AssociationSet>
+          <AssociationSet Name="FK_Matchup_MatchupType" Association="NbaBaseModel.FK_Matchup_MatchupType">
+            <End Role="MatchupType" EntitySet="MatchupType" />
+            <End Role="Matchup" EntitySet="Matchup" />
+          </AssociationSet>
           <AssociationSet Name="FK_Matchup_Season" Association="NbaBaseModel.FK_Matchup_Season">
             <End Role="Season" EntitySet="Season" />
             <End Role="Matchup" EntitySet="Matchup" />
@@ -622,6 +658,10 @@
           <AssociationSet Name="FK_Matchup_Team1" Association="NbaBaseModel.FK_Matchup_Team1">
             <End Role="Team" EntitySet="Team" />
             <End Role="Matchup" EntitySet="Matchup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatchupDetail_Matchup" Association="NbaBaseModel.FK_MatchupDetail_Matchup">
+            <End Role="Matchup" EntitySet="Matchup" />
+            <End Role="MatchupDetail" EntitySet="MatchupDetail" />
           </AssociationSet>
           <AssociationSet Name="FK_MatchupLog_Matchup" Association="NbaBaseModel.FK_MatchupLog_Matchup">
             <End Role="Matchup" EntitySet="Matchup" />
@@ -739,9 +779,11 @@
           <Property Name="Location" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Status" Type="Int32" Nullable="false" />
           <Property Name="CurrentQuarter" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MatchupType" Relationship="NbaBaseModel.FK_Matchup_MatchupType" FromRole="Matchup" ToRole="MatchupType" />
           <NavigationProperty Name="Season" Relationship="NbaBaseModel.FK_Matchup_Season" FromRole="Matchup" ToRole="Season" />
           <NavigationProperty Name="Team" Relationship="NbaBaseModel.FK_Matchup_Team" FromRole="Matchup" ToRole="Team" />
           <NavigationProperty Name="Team1" Relationship="NbaBaseModel.FK_Matchup_Team1" FromRole="Matchup" ToRole="Team" />
+          <NavigationProperty Name="MatchupDetail" Relationship="NbaBaseModel.FK_MatchupDetail_Matchup" FromRole="Matchup" ToRole="MatchupDetail" />
           <NavigationProperty Name="MatchupLog" Relationship="NbaBaseModel.FK_MatchupLog_Matchup" FromRole="Matchup" ToRole="MatchupLog" />
           <NavigationProperty Name="PlayerStatistics" Relationship="NbaBaseModel.FK_PlayerStatistics_Matchup" FromRole="Matchup" ToRole="PlayerStatistics" />
         </EntityType>
@@ -754,6 +796,7 @@
           <Property Name="Quarter" Type="Int32" Nullable="false" />
           <Property Name="Team_Away_Score" Type="Int32" Nullable="false" />
           <Property Name="Team_Home_Score" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Matchup" Relationship="NbaBaseModel.FK_MatchupDetail_Matchup" FromRole="MatchupDetail" ToRole="Matchup" />
         </EntityType>
         <EntityType Name="MatchupLog">
           <Key>
@@ -778,6 +821,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Matchup" Relationship="NbaBaseModel.FK_Matchup_MatchupType" FromRole="MatchupType" ToRole="Matchup" />
         </EntityType>
         <EntityType Name="Pictures">
           <Key>
@@ -983,6 +1027,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Matchup_MatchupType">
+          <End Type="NbaBaseModel.MatchupType" Role="MatchupType" Multiplicity="1" />
+          <End Type="NbaBaseModel.Matchup" Role="Matchup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchupType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Matchup">
+              <PropertyRef Name="MatchupTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Matchup_Season">
           <End Type="NbaBaseModel.Season" Role="Season" Multiplicity="1" />
           <End Type="NbaBaseModel.Matchup" Role="Matchup" Multiplicity="*" />
@@ -1016,6 +1072,18 @@
             </Principal>
             <Dependent Role="Matchup">
               <PropertyRef Name="Team_Home" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatchupDetail_Matchup">
+          <End Type="NbaBaseModel.Matchup" Role="Matchup" Multiplicity="1" />
+          <End Type="NbaBaseModel.MatchupDetail" Role="MatchupDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Matchup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MatchupDetail">
+              <PropertyRef Name="MatchupId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

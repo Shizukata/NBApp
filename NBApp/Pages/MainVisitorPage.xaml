@@ -6,9 +6,10 @@
       xmlns:local="clr-namespace:NBApp.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="MainVisitorPage">
+      Title="MainVisitorPage" Loaded="Page_Loaded">
 
     <Grid>
+        <Button Content="Back" Width="100" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click"/>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal">
                 <Button Content="Teams" Margin="5" Height="100" Width="200" Click="TeamsButton_Click"/>

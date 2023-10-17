@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:NBApp.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="430" d:DesignWidth="800"
-      Title="MenuPage">
+      Title="MenuPage" Loaded="Page_Loaded">
 
     <Grid Background="White">
         <Grid.RowDefinitions>

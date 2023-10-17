@@ -54,6 +54,49 @@ namespace NBApp.Pages
                 playerInTeams = playerInTeams.Where(x => x.SeasonId == 3);
             }
             DtPlayers.ItemsSource = playerInTeams;
+            MatchRefresh();
+            LineUpRefresh();
+        }
+
+        private void MatchRefresh()
+        {
+            IEnumerable<Matchup> matchups = App.DB.Matchup.Where(x => x.Team_Home == contextTeam.Id).ToList();
+            if (CbSort.SelectedIndex == 0)
+            {
+                matchups = matchups.Where(x => x.SeasonId == 1);
+            }
+            if (CbSort.SelectedIndex == 1)
+            {
+                matchups = matchups.Where(x => x.SeasonId == 2);
+            }
+            if (CbSort.SelectedIndex == 2)
+            {
+                matchups = matchups.Where(x => x.SeasonId == 3);
+            }
+            DtMatchup.ItemsSource = matchups;
+        }
+
+        private void LineUpRefresh()
+        {
+            IEnumerable<PlayerInTeam> players = App.DB.PlayerInTeam.Where(x => x.TeamId == contextTeam.Id).ToList();
+            if (CbSort.SelectedIndex == 0)
+            {
+                players = players.Where(x => x.SeasonId == 1);
+            }
+            if (CbSort.SelectedIndex == 1)
+            {
+                players = players.Where(x => x.SeasonId == 2);
+            }
+            if (CbSort.SelectedIndex == 2)
+            {
+                players = players.Where(x => x.SeasonId == 3);
+            }
+
+            LvC.ItemsSource = players.Where(x => x.Player.PositionId == 3);
+            LvPF.ItemsSource = players.Where(x => x.Player.PositionId == 2);
+            LvPg.ItemsSource = players.Where(x => x.Player.PositionId == 5);
+            LvSF.ItemsSource = players.Where(x => x.Player.PositionId == 1);
+            LvSG.ItemsSource = players.Where(x => x.Player.PositionId == 4);
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)

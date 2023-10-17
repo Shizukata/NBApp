@@ -114,6 +114,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NbaBaseModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Components\PartialClasses\Matchup.cs" />
     <Compile Include="Components\PartialClasses\Player.cs" />
     <Compile Include="Components\Pictures.cs">
       <DependentUpon>NbaBaseModel.tt</DependentUpon>
@@ -241,6 +242,7 @@
       <DependentUpon>NbaBaseModel.edmx</DependentUpon>
       <LastGenOutput>NbaBaseModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\lineup.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

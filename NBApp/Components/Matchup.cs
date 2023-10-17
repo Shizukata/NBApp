@@ -17,6 +17,7 @@ namespace NBApp.Components
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Matchup()
         {
+            this.MatchupDetail = new HashSet<MatchupDetail>();
             this.MatchupLog = new HashSet<MatchupLog>();
             this.PlayerStatistics = new HashSet<PlayerStatistics>();
         }
@@ -33,9 +34,12 @@ namespace NBApp.Components
         public int Status { get; set; }
         public string CurrentQuarter { get; set; }
     
+        public virtual MatchupType MatchupType { get; set; }
         public virtual Season Season { get; set; }
         public virtual Team Team { get; set; }
         public virtual Team Team1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MatchupDetail> MatchupDetail { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MatchupLog> MatchupLog { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
