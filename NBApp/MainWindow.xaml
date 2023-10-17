@@ -5,13 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NBApp"
         mc:Ignorable="d" ResizeMode="CanMinimize"
-        Title="NBApp" Height="480" Width="800" Icon="/Resources/logo.jpg">
+        Title="NBApp" Height="680" Width="900" Icon="/Resources/logo.jpg">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
             <RowDefinition/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
-        <Frame x:Name="MainFrame" Focusable="False" NavigationUIVisibility="Hidden"/>
-        <TextBlock x:Name="TbNBAyears" Grid.Row="1" HorizontalAlignment="Center" TextAlignment="Center" FontSize="16"/>
+        <StackPanel Orientation="Horizontal" Margin="15 0 0 0">
+            <Image Source="/Resources/Logo.jpg" Height="50"/>
+            <TextBlock Text="NBA Managment System" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="20" Foreground="#FF5F5F5F"/>
+            <TextBlock x:Name="TbTitle" Text="NavigationName" VerticalAlignment="Center" Margin="100 0 0 0" FontSize="20" Foreground="#FF5F5F5F"/>
+        </StackPanel>
+        <Frame x:Name="MainFrame" Grid.Row="1" Focusable="False" NavigationUIVisibility="Hidden" Navigated="MainFrame_Navigated"/>
+        <TextBlock x:Name="TbNBAyears" Grid.Row="2" HorizontalAlignment="Center" TextAlignment="Center" FontSize="16" Background="#FF749DB3" Foreground="White" Width="900"/>
     </Grid>
 </Window>

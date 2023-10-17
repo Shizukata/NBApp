@@ -15,7 +15,8 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button x:Name="NextBtn" Content="Visitor" Height="140" Width="300" FontSize="70" Background="Beige" Click="NextBtn_Click"/>
+            <Button x:Name="VisitorBtn" Content="Visitor" Height="100" Width="160" FontSize="40" Background="Beige" Click="NextBtn_Click"/>
+            <Button x:Name="AdminBtn" Content="Admin" Height="100" Width="160" FontSize="40" Background="Beige" Click="AdminBtn_Click" Margin="20 0 0 0"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
             <Button x:Name="LeftBtn" Content="&lt;" Height="30" Width="30" Click="LeftBtn_Click"/>

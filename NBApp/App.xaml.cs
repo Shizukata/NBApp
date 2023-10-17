@@ -15,5 +15,6 @@ namespace NBApp
     public partial class App : Application
     {
         public static NbaBaseEntities DB = new NbaBaseEntities();
+        public static string TitlePage;
     }
 }

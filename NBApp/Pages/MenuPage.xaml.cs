@@ -28,6 +28,7 @@ namespace NBApp.Pages
         {
             InitializeComponent();
             Refresh();
+            App.TitlePage = "Menu Page";
         }
 
         private void Refresh()
@@ -56,6 +57,11 @@ namespace NBApp.Pages
         private void NextBtn_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new MainVisitorPage());
+        }
+
+        private void AdminBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -9,33 +9,73 @@
       Title="EasternTeamPage">
 
     <Grid>
-        <ListView x:Name="LvEastern" d:ItemsSource="{d:SampleData ItemCount=5}" Height="400">
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel Width="750" Orientation="Horizontal"/>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal" Height="105" Width="350" Margin="5">
-                        <Border BorderBrush="Gray" BorderThickness="1">
-                            <Image Width="100" Height="100" Source="{Binding MainImage}"/>
-                        </Border>
-                        <StackPanel Margin="10 0 0 0">
-                            <TextBlock Text="{Binding TeamName, StringFormat='Название команды: {0}'}"/>
-                            <TextBlock Text="{Binding Division.Name, StringFormat='Дивизион: {0}'}"/>
-                            <TextBlock Text="{Binding Coach, StringFormat='Тренер: {0}'}"/>
-                            <TextBlock Text="{Binding Division.Name, StringFormat='Дивизион: {0}'}"/>
-                            <TextBlock Text="{Binding Stadium, StringFormat='Стадион: {0}'}"/>
-                            <StackPanel Orientation="Horizontal">
-                                <Button x:Name="RosterBtn" Content="Roster" Width="50"/>
-                                <Button x:Name="MatchupBtn" Content="Matchup" Width="60" Margin="5 0 0 0"/>
-                                <Button x:Name="LineUpbtn" Content="Lineup" Width="50" Margin="5 0 0 0"/>
-                            </StackPanel> 
-                        </StackPanel>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel>
+                <TextBlock Text="Athlantic" Background="LightGray" TextAlignment="Center"/>
+                <ListView x:Name="LvAtlantic" Width="265" d:ItemsSource="{d:SampleData ItemCount=5}" Height="400">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Height="60" Width="240" Margin="5">
+                                <Border BorderBrush="Gray" BorderThickness="1">
+                                    <Image Width="50" Height="50" Source="{Binding MainImage}"/>
+                                </Border>
+                                <StackPanel Margin="10 0 0 0">
+                                    <TextBlock Text="{Binding TeamName}"/>
+                                    <StackPanel Orientation="Horizontal" Margin="0 15 0 0">
+                                        <Button x:Name="RosterBtn" Content="Roster" Width="50" Click="RosterBtn_Click"/>
+                                        <Button x:Name="MatchupBtn" Content="Matchup" Width="60" Margin="5 0 0 0" Click="MatchupBtn_Click"/>
+                                        <Button x:Name="LineUpbtn" Content="Lineup" Width="50" Margin="5 0 0 0" Click="LineUpbtn_Click"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+            <StackPanel Margin="5 0 5 0">
+                <TextBlock Text="Central" Background="LightGray" TextAlignment="Center"/>
+                <ListView x:Name="LvCentral" Width="265" d:ItemsSource="{d:SampleData ItemCount=5}" Height="400">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Height="60" Width="240" Margin="5">
+                                <Border BorderBrush="Gray" BorderThickness="1">
+                                    <Image Width="50" Height="50" Source="{Binding MainImage}"/>
+                                </Border>
+                                <StackPanel Margin="10 0 0 0">
+                                    <TextBlock Text="{Binding TeamName}"/>
+                                    <StackPanel Orientation="Horizontal" Margin="0 15 0 0">
+                                        <Button x:Name="RosterBtn" Content="Roster" Width="50" Click="RosterBtn_Click"/>
+                                        <Button x:Name="MatchupBtn" Content="Matchup" Width="60" Margin="5 0 0 0" Click="MatchupBtn_Click"/>
+                                        <Button x:Name="LineUpbtn" Content="Lineup" Width="50" Margin="5 0 0 0" Click="LineUpbtn_Click"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Southeast" Background="LightGray" TextAlignment="Center"/>
+                <ListView x:Name="LvSoutheast" Width="265" d:ItemsSource="{d:SampleData ItemCount=5}" Height="400">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Height="60" Width="240" Margin="5">
+                                <Border BorderBrush="Gray" BorderThickness="1">
+                                    <Image Width="50" Height="50" Source="{Binding MainImage}"/>
+                                </Border>
+                                <StackPanel Margin="10 0 0 0">
+                                    <TextBlock Text="{Binding TeamName}"/>
+                                    <StackPanel Orientation="Horizontal" Margin="0 15 0 0">
+                                        <Button x:Name="RosterBtn" Content="Roster" Width="50" Click="RosterBtn_Click"/>
+                                        <Button x:Name="MatchupBtn" Content="Matchup" Width="60" Margin="5 0 0 0" Click="MatchupBtn_Click"/>
+                                        <Button x:Name="LineUpbtn" Content="Lineup" Width="50" Margin="5 0 0 0" Click="LineUpbtn_Click"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

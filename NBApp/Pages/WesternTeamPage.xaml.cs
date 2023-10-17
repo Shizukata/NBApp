@@ -24,9 +24,28 @@ namespace NBApp.Pages
         public WesternTeamPage()
         {
             InitializeComponent();
-            IEnumerable<Team> filterTeam = App.DB.Team.Where(x => x.Division.ConferenceId == 2).ToList();
-            filterTeam = filterTeam.OrderBy(x => x.TeamName);
-            LvEastern.ItemsSource = filterTeam;
+
+            LvNorth.ItemsSource = App.DB.Team.Where(x => x.DivisionId == 5).OrderBy(x => x.TeamName).ToList();
+            LvPacific.ItemsSource = App.DB.Team.Where(x => x.DivisionId == 6).OrderBy(x => x.TeamName).ToList();
+            LvSouthwest.ItemsSource = App.DB.Team.Where(x => x.DivisionId == 4).OrderBy(x => x.TeamName).ToList();
+        }
+
+        private void RosterBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedTeam = (sender as Button).DataContext as Team;
+            NavigationService.Navigate(new AdditionPage(selectedTeam, 1));
+        }
+
+        private void MatchupBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedTeam = (sender as Button).DataContext as Team;
+            NavigationService.Navigate(new AdditionPage(selectedTeam, 2));
+        }
+
+        private void LineUpbtn_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedTeam = (sender as Button).DataContext as Team;
+            NavigationService.Navigate(new AdditionPage(selectedTeam, 3));
         }
     }
 }

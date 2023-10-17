@@ -24,7 +24,8 @@ namespace NBApp.Pages
         public TeamsPage()
         {
             InitializeComponent();
-            
+            App.TitlePage = "Teams Main";
+            TeamsFrame.Navigate(new EasternTeamPage());
 
         }
 

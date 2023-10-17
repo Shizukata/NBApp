@@ -23,6 +23,7 @@ namespace NBApp.Pages
         public MainVisitorPage()
         {
             InitializeComponent();
+            App.TitlePage = "Visitors Menu";
         }
 
         private void TeamsButton_Click(object sender, RoutedEventArgs e)

@@ -27,5 +27,10 @@ namespace NBApp
             MainFrame.Navigate(new MenuPage());
             TbNBAyears.Text = $"The current season is {DateTime.Now.Year} - {DateTime.Now.Year + 1}, and the NBA already has a history of {DateTime.Now.Year - 1946} years";
         }
+
+        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+            TbTitle.Text = App.TitlePage;
+        }
     }
 }
