@@ -13,7 +13,7 @@
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal">
                 <Button Content="Teams" Margin="5" Height="100" Width="200" Click="TeamsButton_Click"/>
-                <Button Content="Players" Height="100" Width="200"/>
+                <Button Content="Players" Height="100" Width="200" Click="Button_Click_1"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Button Content="Matchups" Margin="5" Height="100" Width="200"/>

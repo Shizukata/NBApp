@@ -166,6 +166,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PlayersMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\TeamsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -187,6 +191,9 @@
     </Compile>
     <Compile Include="Pages\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PlayersMain.xaml.cs">
+      <DependentUpon>PlayersMain.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\TeamsPage.xaml.cs">
       <DependentUpon>TeamsPage.xaml</DependentUpon>
@@ -242,6 +249,7 @@
       <DependentUpon>NbaBaseModel.edmx</DependentUpon>
       <LastGenOutput>NbaBaseModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\person.png" />
     <Resource Include="Resources\lineup.jpg" />
   </ItemGroup>
   <ItemGroup>
