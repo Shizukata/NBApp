@@ -47,11 +47,11 @@
             </StackPanel>
             <StackPanel Margin="0 5" Orientation="Horizontal">
                 <TextBlock Margin="20 0" Text="Season: " Foreground="White" FontWeight="Bold" FontSize="16"/>
-                <ComboBox Width="140" x:Name="CbSeason" DisplayMemberPath="Name"/>
+                <ComboBox Width="140" x:Name="CbSeason" DisplayMemberPath="Name" SelectionChanged="CbSeason_SelectionChanged"/>
                 <TextBlock Margin="20 0" Text="Team: " Foreground="White" FontWeight="Bold" FontSize="16"/>
-                <ComboBox Width="140" x:Name="CbTeam" DisplayMemberPath="TeamName"/>
+                <ComboBox Width="140" x:Name="CbTeam" DisplayMemberPath="TeamName" SelectionChanged="CbTeam_SelectionChanged"/>
                 <TextBlock Margin="20 0" Text="Playername: " Foreground="White" FontWeight="Bold" FontSize="16"/>
-                <TextBox Width="160" x:Name="TbPlayername"/>
+                <TextBox Width="160" x:Name="TbPlayername" />
             </StackPanel>
         </StackPanel>
         <DataGrid CanUserResizeColumns="False" CanUserResizeRows="False" CanUserDeleteRows="False"
@@ -72,7 +72,7 @@
                 <SolidColorBrush Color="LightYellow"/>
             </DataGrid.AlternatingRowBackground>
             <DataGrid.Columns>
-                
+
                 <DataGridTemplateColumn Header="">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -139,8 +139,14 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <StackPanel Height="20" VerticalAlignment="Top" Margin="0 5" Grid.Row="3" Background="#FFEBEBEB">
-            <Button/>
+        <StackPanel Orientation="Horizontal" Height="20" VerticalAlignment="Top" Margin="0 5" Grid.Row="3" Background="#FFEBEBEB">
+            <Button Content="|&lt;" FontWeight="ExtraBold" Click="BtnFirstPage_Click" Foreground="#FF008AFF" Background="Transparent" BorderThickness="0" Margin="15 0 10  0" Width="20" HorizontalAlignment="Left"/>
+            <Button Content="&lt;" FontWeight="ExtraBold" Click="BtnPreviousPage_Click" Foreground="#FF008AFF" Background="Transparent" BorderThickness="0" Width="20" HorizontalAlignment="Left"/>
+            <TextBox x:Name="CurrentPage" Margin="15 0 5 0" Width="60" Height="16" BorderThickness="0"/>
+            <TextBlock x:Name="MaxPage" Width="20"/>
+            <Button Content="&gt;" FontWeight="ExtraBold" Click="BtnNextPage_Click" Foreground="#FF008AFF" Background="Transparent" BorderThickness="0" Margin="15 0 10  0" Width="20" HorizontalAlignment="Left"/>
+            <Button Content="&gt;|" FontWeight="ExtraBold" Click="BtnLastPage_Click" Foreground="#FF008AFF" Background="Transparent" BorderThickness="0" Width="20" HorizontalAlignment="Left"/>
+            <TextBlock x:Name="RecordText" Margin="60 0" FontWeight="DemiBold" FontSize="14" FontStyle="Italic" Width="20"/>
         </StackPanel>
     </Grid>
 </Page>
