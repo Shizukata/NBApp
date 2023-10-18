@@ -23,6 +23,7 @@ namespace NBApp.Pages
         public MainVisitorPage()
         {
             InitializeComponent();
+            App.TitlePage = "Visitors Menu";
         }
 
         private void TeamsButton_Click(object sender, RoutedEventArgs e)
@@ -32,12 +33,8 @@ namespace NBApp.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new MenuPage());
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            App.TitlePage = "Visitors Menu";
-        }
     }
 }

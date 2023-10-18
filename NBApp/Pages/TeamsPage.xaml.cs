@@ -24,14 +24,14 @@ namespace NBApp.Pages
         public TeamsPage()
         {
             InitializeComponent();
-            
+            App.TitlePage = "Teams Main";
             TeamsFrame.Navigate(new EasternTeamPage());
 
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new MainVisitorPage());
         }
 
         private void EasternButton_Click(object sender, RoutedEventArgs e)
@@ -42,11 +42,6 @@ namespace NBApp.Pages
         private void WesternButton_Click(object sender, RoutedEventArgs e)
         {
             TeamsFrame.Navigate(new WesternTeamPage());
-        }
-
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            App.TitlePage = "Teams Main";
         }
     }
 }
