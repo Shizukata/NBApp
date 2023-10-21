@@ -1,4 +1,4 @@
-﻿<Page x:Class="NBApp.Pages.PlayersMain"
+﻿<Page x:Class="NBApp.Pages.PlayerDetails"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,55 +6,55 @@
       xmlns:local="clr-namespace:NBApp.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="800"
-      Title="PlayersMain">
+      Title="PlayerDetails">
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="65"/>
-            <RowDefinition Height="330"/>
+            <RowDefinition Height="140"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Button Content="Back" Width="100" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click"/>
-        <StackPanel Grid.Row="1" Background="#FF749DB3">
-            <StackPanel Orientation="Horizontal">
-                <RadioButton GroupName="Sort" x:Name="AllRB" Content="ALL" Height="30" Width="40" Checked="AllRB_Checked"/>
-                <StackPanel Orientation="Horizontal" x:Name="SortLettersSt">
-                    <RadioButton GroupName="Sort" x:Name="ARB" Content="A" Height="30" Width="24"  Checked="AllRB_Checked"/>
-                    <RadioButton GroupName="Sort" x:Name="BRB" Content="B" Height="30" Width="24"  Checked="AllRB_Checked"/>
-                    <RadioButton GroupName="Sort" x:Name="CRB" Content="C" Height="30" Width="24" Checked="AllRB_Checked"/>
-                    <RadioButton GroupName="Sort" x:Name="DRB" Content="D" Height="30" Width="24" Checked="AllRB_Checked"/>
-                    <RadioButton GroupName="Sort" x:Name="ERB" Content="E" Height="30" Width="24" Checked="AllRB_Checked"/>
-                    <RadioButton GroupName="Sort" x:Name="FRB" Content="F" Height="30" Width="24" Checked="AllRB_Checked"/>
-                    <RadioButton GroupName="Sort" x:Name="GRB" Content="G" Height="30" Width="24" Checked="AllRB_Checked"/>
-                    <RadioButton GroupName="Sort" x:Name="HRB" Content="H" Height="30" Width="24" Checked="AllRB_Checked"/>
-                    <RadioButton GroupName="Sort" x:Name="IRB" Content="I" Height="30" Width="24" Checked="AllRB_Checked"/>
-                    <RadioButton GroupName="Sort" x:Name="JRB" Content="J" Height="30" Width="24" Checked="AllRB_Checked"/>
-                    <RadioButton GroupName="Sort" x:Name="KRB" Content="K" Height="30" Width="24" Checked="AllRB_Checked"/>
-                    <RadioButton GroupName="Sort" x:Name="LRB" Content="L" Height="30" Width="24" Checked="AllRB_Checked"/>
-                    <RadioButton GroupName="Sort" x:Name="MRB" Content="M" Height="30" Width="26" Checked="AllRB_Checked"/>
-                    <RadioButton GroupName="Sort" x:Name="NRB" Content="N" Height="30" Width="24" Checked="AllRB_Checked"/>
-                    <RadioButton GroupName="Sort" x:Name="ORB" Content="O" Height="30" Width="24" Checked="AllRB_Checked"/>
-                    <RadioButton GroupName="Sort" x:Name="PRB" Content="P" Height="30" Width="24" Checked="AllRB_Checked"/>
-                    <RadioButton GroupName="Sort" x:Name="QRB" Content="Q" Height="30" Width="24" Checked="AllRB_Checked"/>
-                    <RadioButton GroupName="Sort" x:Name="RRB" Content="R" Height="30" Width="24" Checked="AllRB_Checked"/>
-                    <RadioButton GroupName="Sort" x:Name="SRB" Content="S" Height="30" Width="24" Checked="AllRB_Checked"/>
-                    <RadioButton GroupName="Sort" x:Name="TRB" Content="T" Height="30" Width="24" Checked="AllRB_Checked"/>
-                    <RadioButton GroupName="Sort" x:Name="URB" Content="U" Height="30" Width="24" Checked="AllRB_Checked"/>
-                    <RadioButton GroupName="Sort" x:Name="VRB" Content="V" Height="30" Width="24" Checked="AllRB_Checked"/>
-                    <RadioButton GroupName="Sort" x:Name="WRB" Content="W" Height="30" Width="28" Checked="AllRB_Checked"/>
-                    <RadioButton GroupName="Sort" x:Name="XRB" Content="X" Height="30" Width="24" Checked="AllRB_Checked"/>
-                    <RadioButton GroupName="Sort" x:Name="YRB" Content="Y" Height="30" Width="24" Checked="AllRB_Checked"/>
-                    <RadioButton GroupName="Sort" x:Name="ZRB" Content="Z" Height="30" Width="24" Checked="AllRB_Checked"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Image Width="100" Height="100" Margin="20" Source="{Binding Player.MainImage}"/>
+            <StackPanel Width="400">
+                <Border BorderThickness="0,0,0,0.8" BorderBrush="Black">
+                    <TextBlock Text="{Binding Player.Name}" FontSize="18" FontWeight="Bold"/>
+                </Border>
+                <StackPanel Margin="0 5" Orientation="Horizontal">
+                    <TextBlock Text="{Binding ShirtNumber,StringFormat=' #{0}'}"/>
+                    <Border Margin="10 0" BorderBrush="Black" BorderThickness="0.5,0">
+                        <TextBlock Margin="10 0" Text="{Binding Player.Height}"/>
+                    </Border>
+                    <TextBlock Text="{Binding Team.TeamName}"/>
+                </StackPanel>
+                <StackPanel Margin="0 5" Orientation="Horizontal">
+                    <StackPanel>
+                        <TextBlock Text="{Binding Player.DateOfBirth, StringFormat='Born: dd.MM.yyyy'}" FontSize="16"/>
+                        <TextBlock Text="{Binding Player.College, StringFormat='College: {0}'}" FontSize="16"/>
+                    </StackPanel>
+                    <StackPanel Margin="20 0 0 0">
+                        <TextBlock Text="{Binding Player.Experience, StringFormat='Experience: {0} years'}" FontSize="16"/>
+                        <TextBlock Text="{Binding Salary, StringFormat='Salary: ${0}'}" FontSize="16"/>
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
-            <StackPanel Margin="0 5" Orientation="Horizontal">
-                <TextBlock Margin="20 0" Text="Season: " Foreground="White" FontWeight="Bold" FontSize="16"/>
-                <ComboBox Width="140" x:Name="CbSeason" DisplayMemberPath="Name" SelectionChanged="CbSeason_SelectionChanged"/>
-                <TextBlock Margin="20 0" Text="Team: " Foreground="White" FontWeight="Bold" FontSize="16"/>
-                <ComboBox Width="140" x:Name="CbTeam" DisplayMemberPath="TeamName" SelectionChanged="CbTeam_SelectionChanged"/>
-                <TextBlock Margin="20 0" Text="Playername: " Foreground="White" FontWeight="Bold" FontSize="16"/>
-                <TextBox Width="160" x:Name="TbPlayername" />
+            <StackPanel Margin="50 0">
+                <TextBlock Text="2016-2017 Season"/>
+                <Grid Background="LightGray" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="PPG"/>
+                    <TextBlock Text="APG" Grid.Column="1"/>
+                    <TextBlock Text="RPG" Grid.Column="2"/>
+                </Grid>
             </StackPanel>
         </StackPanel>
         <DataGrid CanUserResizeColumns="False" CanUserResizeRows="False" CanUserDeleteRows="False"
@@ -79,7 +79,7 @@
                 <DataGridTemplateColumn Header="">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image x:Name="ImageBtn" Cursor="Hand" Source="{Binding Player.MainImage}" Width="70" Height="70" MouseLeftButtonDown="ImageBtn_MouseLeftButtonDown"/>
+                            <Image x:Name="ImageBtn" Source="{Binding Player.MainImage}" Width="70" Height="70"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -142,14 +142,6 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <StackPanel Orientation="Horizontal" Height="20" VerticalAlignment="Top" Margin="0 5" Grid.Row="3" Background="#FFEBEBEB">
-            <Button Content="|&lt;" FontWeight="ExtraBold" Click="BtnFirstPage_Click" Foreground="#FF008AFF" Background="Transparent" BorderThickness="0" Margin="15 0 10  0" Width="20" HorizontalAlignment="Left"/>
-            <Button Content="&lt;" FontWeight="ExtraBold" Click="BtnPreviousPage_Click" Foreground="#FF008AFF" Background="Transparent" BorderThickness="0" Width="20" HorizontalAlignment="Left"/>
-            <TextBox x:Name="CurrentPage" Margin="15 0 5 0" Width="60" Height="16" BorderThickness="0"/>
-            <TextBlock x:Name="MaxPage" Width="auto"/>
-            <Button Content="&gt;" FontWeight="ExtraBold" Click="BtnNextPage_Click" Foreground="#FF008AFF" Background="Transparent" BorderThickness="0" Margin="15 0 10  0" Width="20" HorizontalAlignment="Left"/>
-            <Button Content="&gt;|" FontWeight="ExtraBold" Click="BtnLastPage_Click" Foreground="#FF008AFF" Background="Transparent" BorderThickness="0" Width="20" HorizontalAlignment="Left"/>
-            <TextBlock x:Name="RecordText" Margin="60 0" FontWeight="DemiBold" FontSize="14" FontStyle="Italic"/>
-        </StackPanel>
     </Grid>
+
 </Page>
