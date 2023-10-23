@@ -34,5 +34,9 @@ namespace NBApp.Pages
             NavigationService.Navigate(new MainVisitorPage());
         }
 
+        private void SearchClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
