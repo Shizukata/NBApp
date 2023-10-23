@@ -40,5 +40,10 @@ namespace NBApp.Pages
         {
             NavigationService.Navigate(new PlayersMain());
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MatchupListPage());
+        }
     }
 }

@@ -32,5 +32,21 @@ namespace NBApp.Components
                     return null;
             }
         }
+        public string StatusColor
+        {
+            get
+            {
+                if (Status == 1)
+                {
+                    return "Gray";
+                }
+                if (Status == -1)
+                {
+                    return "#FF009CFF";
+                }
+                else
+                    return "Red";
+            }
+        }
     }
 }

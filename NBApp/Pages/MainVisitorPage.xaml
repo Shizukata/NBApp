@@ -16,7 +16,7 @@
                 <Button Content="Players" Height="100" Width="200" Click="Button_Click_1"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Button Content="Matchups" Margin="5" Height="100" Width="200"/>
+                <Button Content="Matchups" Margin="5" Height="100" Width="200" Click="Button_Click_2"/>
                 <Button Content="Photos" Height="100" Width="200"/>
             </StackPanel>
         </StackPanel>
