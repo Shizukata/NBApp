@@ -13,13 +13,27 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="100"/>
             <RowDefinition/>
-        </Grid.RowDefinitions>
-        <DatePicker Height="25" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="30 2"/>
+        </Grid.RowDefinitions>                                  
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="LeftBtn" Margin="10 0" Content="&lt;" Width="30" FontSize="18" Click="LeftBtn_Click"/>
+            <DatePicker x:Name="DtSort" Height="25" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 2"/>
+            <Button x:Name="RightBtn" Margin="10 0" Content="&gt;" Width="30" FontSize="18" Click="RightBtn_Click"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Grid.Row="1">
+            <Image Height="90" Width="90" x:Name="ImgTeamName"/>
+            <TextBlock Margin="0 0 20 0" x:Name="TbTeamName" VerticalAlignment="Center" FontSize="18" Width="150" TextWrapping="Wrap" Foreground="Blue"/>
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="VS" FontSize="32" FontWeight="DemiBold" Foreground="DarkGray"/>
+                <TextBlock x:Name="TbMatchTime" FontSize="14" Foreground="DarkGray"/>
+            </StackPanel>
+            <Image Margin="20 0" Height="90" Width="90" x:Name="ImgTeam1Name"/>
+            <TextBlock x:Name="TbTeam1Name" VerticalAlignment="Center" FontSize="18" Width="150" TextWrapping="Wrap" Foreground="Blue"/>
+        </StackPanel>
         <ListView x:Name="LvMatchup" Grid.Row="2" Width="870" d:ItemsSource="{d:SampleData ItemCount=5}" Height="400">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderThickness="0,1.5,0,1.5" BorderBrush="Black">
-                        <Grid Width="835" Height="50" Background="LightYellow">
+                        <Grid Width="835" Height="50">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="100"/>
                             <ColumnDefinition Width="120"/>
@@ -29,7 +43,7 @@
                             <ColumnDefinition Width="80"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Border Height="25" BorderThickness="2" BorderBrush="White" Background="{Binding StatusColor}">
+                        <Border Height="25" Width="90" HorizontalAlignment="Right" BorderThickness="2" BorderBrush="White" Background="{Binding StatusColor}">
                             <TextBlock Foreground="White" Text="{Binding StatusName}" VerticalAlignment="Center" HorizontalAlignment="Center"/> 
                         </Border>
                         <TextBlock Grid.Column="1" Text="{Binding Starttime}" HorizontalAlignment="Center" FontSize="12" VerticalAlignment="Center"/>
@@ -43,7 +57,7 @@
                             <TextBlock Text="{Binding Team1.TeamName}" VerticalAlignment="Center"/>
                         </StackPanel>
                         <TextBlock Grid.Column="5" Text="{Binding Location}" TextWrapping="Wrap" Width="80" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <Button Grid.Column="6" Height="25" Width="50" Content="View"/>
+                        <Button HorizontalAlignment="Left" Grid.Column="6" Height="25" Width="50" Content="View"/>
                     </Grid>
                     </Border>
                     
