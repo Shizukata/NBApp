@@ -12,7 +12,7 @@ namespace NBApp.Components
         {
             get
             {
-                return $"{Team_Home_Score} - {Team_Away_Score}";
+                return $"{Team_Away_Score} - {Team_Home_Score}";
             }
         }
 

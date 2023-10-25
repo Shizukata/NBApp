@@ -25,32 +25,47 @@ namespace NBApp.Pages
         public MatchupListPage()
         {
             InitializeComponent();
-            LvMatchup.ItemsSource = App.DB.Matchup.ToList();
             DtSort.SelectedDate = DateTime.Now;
             App.TitlePage = "Machup List";
+            MatchupSearch();
         }
 
         private void LeftBtn_Click(object sender, RoutedEventArgs e)
         {
             DtSort.SelectedDate -= TimeSpan.FromDays(1);
+            MatchupSearch();
         }
 
         private void RightBtn_Click(object sender, RoutedEventArgs e)
         {
             DtSort.SelectedDate += TimeSpan.FromDays(1);
+            MatchupSearch();
         }
 
         private void MatchupSearch()
         {
-            IEnumerable<Matchup> matchups = App.DB.Matchup.OrderBy(x => x.Starttime).Where(x => x.Status == -1);
+            IEnumerable<Matchup> matchups = App.DB.Matchup.OrderBy(x => x.Starttime);
             if(DtSort.SelectedDate != null)
             {
-                matchups = matchups.Where(x => x.Starttime >= DtSort.SelectedDate);
+                matchups = matchups.Where(x => x.Starttime.Date == DtSort.SelectedDate);
             }
+            LvMatchup.ItemsSource = matchups.ToList();
+            var ShowMatch = matchups.FirstOrDefault();
+            if (ShowMatch != null)
+            {
+                ImgTeamName.Source = ConvertImage(ShowMatch.Team.MainImage);
+                TbTeamName.Text = $"{ShowMatch.Team.TeamName} (Away)";
 
-            var leftTeam = App.DB.Team.FirstOrDefault(x => x.Id == matchups.FirstOrDefault().Team1.Id);
-            ImgTeamName.Source = ConvertImage(leftTeam.MainImage);
-            TbTeamName.Text = leftTeam.TeamName;
+                ImgTeam1Name.Source = ConvertImage(ShowMatch.Team1.MainImage);
+                TbTeam1Name.Text = $"{ShowMatch.Team1.TeamName} (Home)";
+                TbMatchTime.Text = ShowMatch.Starttime.ToString("hh:mm") + " Start";
+                StCurrentMatch.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                StCurrentMatch.Visibility = Visibility.Collapsed;
+            }
+            
         }
 
         private BitmapImage ConvertImage(byte[] Image)
@@ -59,7 +74,7 @@ namespace NBApp.Pages
             using (var mem = new MemoryStream(Image))
             {
                 mem.Position = 0;
-                BeginInit();
+                empImage.BeginInit();
                 empImage.CreateOptions = BitmapCreateOptions.PreservePixelFormat;
                 empImage.CacheOption = BitmapCacheOption.OnLoad;
                 empImage.UriSource = null;
@@ -68,6 +83,11 @@ namespace NBApp.Pages
             }
             empImage.Freeze();
             return empImage;
+        }
+
+        private void DtSort_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MatchupSearch();
         }
     }
 }

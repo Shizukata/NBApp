@@ -16,15 +16,15 @@
         </Grid.RowDefinitions>                                  
         <StackPanel Orientation="Horizontal">
             <Button x:Name="LeftBtn" Margin="10 0" Content="&lt;" Width="30" FontSize="18" Click="LeftBtn_Click"/>
-            <DatePicker x:Name="DtSort" Height="25" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 2"/>
+            <DatePicker x:Name="DtSort" Height="25" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left" SelectedDateChanged="DtSort_SelectedDateChanged" Margin="0 2" />
             <Button x:Name="RightBtn" Margin="10 0" Content="&gt;" Width="30" FontSize="18" Click="RightBtn_Click"/>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Grid.Row="1">
+        <StackPanel x:Name="StCurrentMatch" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Grid.Row="1">
             <Image Height="90" Width="90" x:Name="ImgTeamName"/>
             <TextBlock Margin="0 0 20 0" x:Name="TbTeamName" VerticalAlignment="Center" FontSize="18" Width="150" TextWrapping="Wrap" Foreground="Blue"/>
             <StackPanel VerticalAlignment="Center">
-                <TextBlock Text="VS" FontSize="32" FontWeight="DemiBold" Foreground="DarkGray"/>
-                <TextBlock x:Name="TbMatchTime" FontSize="14" Foreground="DarkGray"/>
+                <TextBlock Text="VS" FontSize="32" FontWeight="DemiBold" HorizontalAlignment="Center" Foreground="DarkGray"/>
+                <TextBlock x:Name="TbMatchTime" HorizontalAlignment="Center" FontSize="14" Foreground="DarkGray"/>
             </StackPanel>
             <Image Margin="20 0" Height="90" Width="90" x:Name="ImgTeam1Name"/>
             <TextBlock x:Name="TbTeam1Name" VerticalAlignment="Center" FontSize="18" Width="150" TextWrapping="Wrap" Foreground="Blue"/>
@@ -46,7 +46,7 @@
                         <Border Height="25" Width="90" HorizontalAlignment="Right" BorderThickness="2" BorderBrush="White" Background="{Binding StatusColor}">
                             <TextBlock Foreground="White" Text="{Binding StatusName}" VerticalAlignment="Center" HorizontalAlignment="Center"/> 
                         </Border>
-                        <TextBlock Grid.Column="1" Text="{Binding Starttime}" HorizontalAlignment="Center" FontSize="12" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="1" Text="{Binding Starttime, StringFormat=' MM/dd hh:mm'}" HorizontalAlignment="Center" FontSize="12" VerticalAlignment="Center"/>
                         <StackPanel Grid.Column="2" Orientation="Horizontal">
                             <Image Width="45" Height="45" Source="{Binding Team.MainImage}"/>
                             <TextBlock Text="{Binding Team.TeamName}" VerticalAlignment="Center"/>
