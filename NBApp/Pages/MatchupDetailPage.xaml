@@ -1,0 +1,99 @@
+﻿<Page x:Class="NBApp.Pages.MatchupDetailPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NBApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MatchupDetailPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="320"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <TextBlock Text="{Binding Team.TeamName}" FontSize="22"/>
+            <Image Source="{Binding Team.MainImage}" Height="70" Width="70"/>
+            <TextBlock Text="{Binding Team.Team_Away_Score}" FontSize="22"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1" Height="90" Width="280">
+            <StackPanel Orientation="Horizontal">
+                <Border Width="40" BorderBrush="DarkGray" BorderThickness="1">
+                    <TextBlock/>
+                </Border>
+                <Border Width="40" BorderBrush="DarkGray" BorderThickness="1">
+                    <TextBlock Text="T" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </Border>
+                <Border Width="40" BorderBrush="DarkGray" BorderThickness="1">
+                    <TextBlock Text="1st" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </Border>
+                <Border Width="40" BorderBrush="DarkGray" BorderThickness="1">
+                    <TextBlock Text="2nd" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </Border>
+                <Border Width="40" BorderBrush="DarkGray" BorderThickness="1">
+                    <TextBlock Text="3rd" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </Border>
+                <Border Width="40" BorderBrush="DarkGray" BorderThickness="1">
+                    <TextBlock Text="4th" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </Border>
+                <Border Width="40" BorderBrush="DarkGray" BorderThickness="1">
+                    <TextBlock Text="OT1" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </Border>
+            </StackPanel>
+            <StackPanel Background="#FFF2F2F2" Orientation="Horizontal">
+                <Border Width="40" BorderBrush="DarkGray" BorderThickness="1">
+                    <TextBlock Text="{Binding Team.Abbr}" HorizontalAlignment="Center"/>
+                </Border>
+                <Border Width="40" BorderBrush="DarkGray" BorderThickness="1">
+                    <TextBlock Text="{Binding}" HorizontalAlignment="Center"/>
+                </Border>
+                <Border Width="40" BorderBrush="DarkGray" BorderThickness="1">
+                    <TextBlock Text="{Binding}" HorizontalAlignment="Center"/>
+                </Border>
+                <Border Width="40" BorderBrush="DarkGray" BorderThickness="1">
+                    <TextBlock Text="{Binding}" HorizontalAlignment="Center"/>
+                </Border>
+                <Border Width="40" BorderBrush="DarkGray" BorderThickness="1">
+                    <TextBlock Text="{Binding}" HorizontalAlignment="Center"/>
+                </Border>
+                <Border Width="40" BorderBrush="DarkGray" BorderThickness="1">
+                    <TextBlock Text="{Binding}" HorizontalAlignment="Center"/>
+                </Border>
+                <Border Width="40" BorderBrush="DarkGray" BorderThickness="1">
+                    <TextBlock Text="{Binding}" HorizontalAlignment="Center"/>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Border Width="40" BorderBrush="DarkGray" BorderThickness="1">
+                    <TextBlock Text="{Binding Team1.Abbr}" HorizontalAlignment="Center"/>
+                </Border>
+                <Border Width="40" BorderBrush="DarkGray" BorderThickness="1">
+                    <TextBlock Text="{Binding}" HorizontalAlignment="Center"/>
+                </Border>
+                <Border Width="40" BorderBrush="DarkGray" BorderThickness="1">
+                    <TextBlock Text="{Binding}" HorizontalAlignment="Center"/>
+                </Border>
+                <Border Width="40" BorderBrush="DarkGray" BorderThickness="1">
+                    <TextBlock Text="{Binding}" HorizontalAlignment="Center"/>
+                </Border>
+                <Border Width="40" BorderBrush="DarkGray" BorderThickness="1">
+                    <TextBlock Text="{Binding}" HorizontalAlignment="Center"/>
+                </Border>
+                <Border Width="40" BorderBrush="DarkGray" BorderThickness="1">
+                    <TextBlock Text="{Binding}" HorizontalAlignment="Center"/>
+                </Border>
+                <Border Width="40" BorderBrush="DarkGray" BorderThickness="1">
+                    <TextBlock Text="{Binding}" HorizontalAlignment="Center"/>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

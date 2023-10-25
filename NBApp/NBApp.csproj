@@ -168,6 +168,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\MatchupDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MatchupListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -202,6 +206,9 @@
     </Compile>
     <Compile Include="Pages\MainVisitorPage.xaml.cs">
       <DependentUpon>MainVisitorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MatchupDetailPage.xaml.cs">
+      <DependentUpon>MatchupDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MatchupListPage.xaml.cs">
       <DependentUpon>MatchupListPage.xaml</DependentUpon>
