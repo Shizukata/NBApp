@@ -89,5 +89,11 @@ namespace NBApp.Pages
         {
             MatchupSearch();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedMatch = (sender as Button).DataContext as Matchup;
+            NavigationService.Navigate(new MatchupDetailPage(selectedMatch));
+        }
     }
 }

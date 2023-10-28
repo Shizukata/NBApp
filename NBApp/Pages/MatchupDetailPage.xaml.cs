@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NBApp.Components;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,13 @@ namespace NBApp.Pages
     /// </summary>
     public partial class MatchupDetailPage : Page
     {
-        public MatchupDetailPage()
+        Matchup contextMatchup;
+        public MatchupDetailPage(Matchup matchup)
         {
             InitializeComponent();
+            contextMatchup = matchup;
+            DataContext = contextMatchup;
+            App.TitlePage = "Matchup Detail";
         }
     }
 }

@@ -57,7 +57,7 @@
                             <TextBlock Text="{Binding Team1.TeamName}" VerticalAlignment="Center"/>
                         </StackPanel>
                         <TextBlock Grid.Column="5" Text="{Binding Location}" TextWrapping="Wrap" Width="80" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <Button HorizontalAlignment="Left" Grid.Column="6" Height="25" Width="50" Content="View"/>
+                        <Button HorizontalAlignment="Left" Grid.Column="6" Height="25" Width="50" Content="View" Click="Button_Click"/>
                     </Grid>
                     </Border>
                     
