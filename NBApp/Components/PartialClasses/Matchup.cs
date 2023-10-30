@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -155,23 +156,216 @@ namespace NBApp.Components
             }
         }
 
-        //Фиксить, нет подбора по командам
+        
         public string FGAway
         {
             get
             {
-                var Goal = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 3 && x.Team == Team);
-                var Miss = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 4);
-                return $"{Goal - Miss}";
+                int Goal = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 3 && x.TeamId == Team_Away);
+                int Miss = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 4 && x.TeamId == Team_Away);
+                return $"{Goal} - {Miss}";
             }
         }
         public string FG3Away
         {
             get
             {
-                var Goal = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 5);
-                var Miss = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 6);
-                return $"{Goal - Miss}";
+                var Goal = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 5 && x.TeamId == Team_Away);
+                var Miss = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 6 && x.TeamId == Team_Away);
+                return $"{Goal} - {Miss}";
+            }
+        }
+        public string FTAway
+        {
+            get
+            {
+                var Goal = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 7 && x.TeamId == Team_Away);
+                var Miss = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 8 && x.TeamId == Team_Away);
+                return $"{Goal}  -  {Miss}";
+            }
+        }
+        
+        public string ReboundsAway
+        {
+            get
+            {
+                var Goal = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 9 && x.TeamId == Team_Away);
+                var Miss = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 10 && x.TeamId == Team_Away);
+                return $"{Goal + Miss}";
+            }
+        }
+
+        public string AssitsAway
+        {
+            get
+            {
+                var Goal = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 11 && x.TeamId == Team_Away);
+                return $"{Goal}";
+            }
+        }
+        public string StealsAway
+        {
+            get
+            {
+                var Goal = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 12 && x.TeamId == Team_Away);
+                return $"{Goal}";
+            }
+        }
+        public string BlocksAway
+        {
+            get
+            {
+                var Goal = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 13 && x.TeamId == Team_Away);
+                return $"{Goal}";
+            }
+        }
+
+        public string TurnoversAway
+        {
+            get
+            {
+                var Goal = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 14 && x.TeamId == Team_Away);
+                return $"{Goal}";
+            }
+        }
+
+        //Home
+        public string FGHome
+        {
+            get
+            {
+                int Goal = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 3 && x.TeamId == Team_Home);
+                int Miss = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 4 && x.TeamId == Team_Home);
+                return $"{Goal} - {Miss}";
+            }
+        }
+        public string FG3Home
+        {
+            get
+            {
+                var Goal = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 5 && x.TeamId == Team_Home);
+                var Miss = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 6 && x.TeamId == Team_Home);
+                return $"{Goal} - {Miss}";
+            }
+        }
+        public string FTHome
+        {
+            get
+            {
+                var Goal = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 7 && x.TeamId == Team_Home);
+                var Miss = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 8 && x.TeamId == Team_Home);
+                return $"{Goal}  -  {Miss}";
+            }
+        }
+
+        public string ReboundsHome
+        {
+            get
+            {
+                var Goal = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 9 && x.TeamId == Team_Home);
+                var Miss = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 10 && x.TeamId == Team_Home);
+                return $"{Goal + Miss}";
+            }
+        }
+
+        public string AssitsHome
+        {
+            get
+            {
+                var Goal = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 11 && x.TeamId == Team_Home);
+                return $"{Goal}";
+            }
+        }
+        public string StealsHome
+        {
+            get
+            {
+                var Goal = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 12 && x.TeamId == Team_Home);
+                return $"{Goal}";
+            }
+        }
+        public string BlocksHome
+        {
+            get
+            {
+                var Goal = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 13 && x.TeamId == Team_Home);
+                return $"{Goal}";
+            }
+        }
+
+        public string TurnoversHome
+        {
+            get
+            {
+                var Goal = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 14 && x.TeamId == Team_Home);
+                return $"{Goal}";
+            }
+        }
+
+        public double GoalPercentAway
+        {
+            get
+            {
+                double Goal = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 3 && x.TeamId == Team_Away);
+                double Miss = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 4 && x.TeamId == Team_Away);
+                if (Goal >= Miss)
+                {
+                    return Math.Round((Miss / Goal * 100), 2);
+                }
+                else
+                {
+                    return Math.Round((Goal / Miss * 100), 2);
+                }
+            }
+        }
+        public double ThreeGoalPercentAway
+        {
+            get
+            {
+                double Goal = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 5 && x.TeamId == Team_Away);
+                double Miss = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 6 && x.TeamId == Team_Away);
+                if (Goal >= Miss)
+                {
+                    return Math.Round((Miss / Goal * 100), 2);
+                }
+                else
+                {
+                    return Math.Round((Goal / Miss * 100), 2);
+                }
+            }
+        }
+
+        public double GoalPercentHome
+        {
+            get
+            {
+                double Goal = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 3 && x.TeamId == Team_Home);
+                double Miss = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 4 && x.TeamId == Team_Home);
+                if (Goal >= Miss)
+                {
+                    return Math.Round((Miss / Goal * 100), 2);
+                }
+                else
+                {
+                    return Math.Round((Goal / Miss * 100), 2);
+                }
+            }
+        }
+
+        public double ThreeGoalPercentHome
+        {
+            get
+            {
+                double Goal = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 5 && x.TeamId == Team_Home);
+                double Miss = App.DB.MatchupLog.Count(x => x.MatchupId == Id && x.ActionTypeId == 6 && x.TeamId == Team_Home);
+                if (Goal >= Miss)
+                {
+                    return Math.Round((Miss / Goal * 100), 2);
+                }
+                else
+                {
+                    return Math.Round((Goal / Miss * 100), 2);
+                }
             }
         }
     }

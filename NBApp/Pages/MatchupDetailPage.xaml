@@ -19,15 +19,16 @@
             <ColumnDefinition Width="320"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <StackPanel Orientation="Horizontal" Grid.Row="1">
-            <TextBlock Text="{Binding Team.TeamName}" FontSize="22" VerticalAlignment="Center" Margin="20 0 0 0"/>
-            <Image Source="{Binding Team.MainImage}" Height="70" Width="70"/>
-            <TextBlock Text="{Binding Team_Away_Score}" FontSize="22" VerticalAlignment="Center"/>
+        <Button Content="Back" Width="100" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Top" Margin="0 5 0 0">
+            <TextBlock Text="{Binding Team.TeamName}" FontSize="14" VerticalAlignment="Center" Margin="20 0 0 0"/>
+            <Image Source="{Binding Team.MainImage}" Height="60" Width="60" Margin="10 0 10 0"/>
+            <TextBlock Text="{Binding Team_Away_Score}" FontSize="20" VerticalAlignment="Center"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2">
-            <TextBlock Text="{Binding Team_Home_Score}" FontSize="22" VerticalAlignment="Center"/>
-            <Image Source="{Binding Team1.MainImage}" Height="70" Width="70"/>
-            <TextBlock Text="{Binding Team1.TeamName}" FontSize="22" VerticalAlignment="Center"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2" VerticalAlignment="Top" Margin="0 5 0 0">
+            <TextBlock Text="{Binding Team_Home_Score}" FontSize="20" VerticalAlignment="Center"/>
+            <Image Source="{Binding Team1.MainImage}" Height="60" Width="60" Margin="10 0 10 0"/>
+            <TextBlock Text="{Binding Team1.TeamName}" FontSize="14" VerticalAlignment="Center"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" Height="90" Width="280">
             <StackPanel Orientation="Horizontal">
@@ -106,81 +107,162 @@
         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="3">
             <TabControl Width="860" Margin="10">
                 <TabItem Header="Team Status">
-                    <Grid Width="500" HorizontalAlignment="Left" Margin="5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="105"/>
-                            <ColumnDefinition Width="105"/>
-                        </Grid.ColumnDefinitions>
-                        <StackPanel Grid.ColumnSpan="3">
-                            <Border Height="70" BorderBrush="Gray" BorderThickness="1">
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                    <Image Width="80" Source="{Binding Team.MainImage}" Margin="50 0"/>
-                                    <Image Width="80" Source="{Binding Team1.MainImage}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Grid Width="500" HorizontalAlignment="Left" Margin="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="105"/>
+                                <ColumnDefinition Width="105"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.ColumnSpan="3">
+                                <Border Height="70" BorderBrush="Gray" BorderThickness="1">
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <Image Width="80" Source="{Binding Team.MainImage}" Margin="50 0"/>
+                                        <Image Width="80" Source="{Binding Team1.MainImage}"/>
+                                    </StackPanel>
+                                </Border>
+                                <Border BorderThickness="0.5" BorderBrush="Gray" Height="24">
+                                    <StackPanel Orientation="Horizontal" Background="#FFEFEFEF">
+                                        <TextBlock Text="FG Made-Attempted" VerticalAlignment="Center" Margin="10 0" Width="130"/>
+                                        <TextBlock Margin="160 0 0 0" Text="{Binding FGAway}" Width="80"/>
+                                        <TextBlock Margin="50 0" Text="{Binding FGHome}"/>
+                                    </StackPanel>
+                                </Border>
+                                <Border BorderThickness="0.5" BorderBrush="Gray" Height="24">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="3PT Made-Attempted" VerticalAlignment="Center" Margin="10 0" Width="130"/>
+                                        <TextBlock Margin="160 0 0 0" Text="{Binding FG3Away}" Width="80"/>
+                                        <TextBlock Margin="50 0" Text="{Binding FG3Home}"/>
+                                    </StackPanel>
+                                </Border>
+                                <Border BorderThickness="0.5" BorderBrush="Gray" Height="24">
+                                    <StackPanel Orientation="Horizontal" Background="#FFEFEFEF">
+                                        <TextBlock Text="FT Made-Attempted" VerticalAlignment="Center" Margin="10 0" Width="130"/>
+                                        <TextBlock Margin="160 0 0 0" Text="{Binding FTAway}" Width="80"/>
+                                        <TextBlock Margin="50 0" Text="{Binding FTHome}"/>
+                                    </StackPanel>
+                                </Border>
+                                <Border BorderThickness="0.5" BorderBrush="Gray" Height="24">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Rebounds" VerticalAlignment="Center" Margin="10 0" Width="130"/>
+                                        <TextBlock Margin="160 0 0 0" Text="{Binding ReboundsAway}" Width="80"/>
+                                        <TextBlock Margin="50 0" Text="{Binding ReboundsHome}"/>
+                                    </StackPanel>
+                                </Border>
+                                <Border BorderThickness="0.5" BorderBrush="Gray" Height="24">
+                                    <StackPanel Orientation="Horizontal" Background="#FFEFEFEF">
+                                        <TextBlock Text="Assists" VerticalAlignment="Center" Margin="10 0" Width="130"/>
+                                        <TextBlock Margin="160 0 0 0" Text="{Binding AssitsAway}" Width="80"/>
+                                        <TextBlock Margin="50 0" Text="{Binding AssitsHome}"/>
+                                    </StackPanel>
+                                </Border>
+                                <Border BorderThickness="0.5" BorderBrush="Gray" Height="24">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Steals" VerticalAlignment="Center" Margin="10 0" Width="130"/>
+                                        <TextBlock Margin="160 0 0 0" Text="{Binding StealsAway}" Width="80"/>
+                                        <TextBlock Margin="50 0" Text="{Binding StealsHome}"/>
+                                    </StackPanel>
+                                </Border>
+                                <Border BorderThickness="0.5" BorderBrush="Gray" Height="24">
+                                    <StackPanel Orientation="Horizontal" Background="#FFEFEFEF">
+                                        <TextBlock Text="Blocks" VerticalAlignment="Center" Margin="10 0" Width="130"/>
+                                        <TextBlock Margin="160 0 0 0" Text="{Binding BlocksAway}" Width="80"/>
+                                        <TextBlock Margin="50 0" Text="{Binding BlocksHome}"/>
+                                    </StackPanel>
+                                </Border>
+                                <Border BorderThickness="0.5" BorderBrush="Gray" Height="24">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Turnovers" VerticalAlignment="Center" Margin="10 0" Width="130"/>
+                                        <TextBlock Margin="160 0 0 0" Text="{Binding TurnoversAway}" Width="80"/>
+                                        <TextBlock Margin="50 0" Text="{Binding TurnoversHome}"/>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                        </Grid>
+                        <StackPanel Margin="0 5 0 0">
+                            <Border BorderThickness="0.7" BorderBrush="Gray">
+                                <StackPanel Height="100">
+                                    <TextBlock Text="Field Goal %" FontSize="14" VerticalAlignment="Center" Margin="40 0 0 0"/>
+                                    <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                                        <TextBlock Text="{Binding Team.Abbr}" FontWeight="Bold" Foreground="Gray" FontSize="18" VerticalAlignment="Center" Margin="15 0 0 0"/>
+                                        <ProgressBar x:Name="PbFGAway" Width="220" Margin="10 0 0 0" Foreground="#FF00C5FF" Background="Transparent"/>
+                                        <TextBlock Text="{Binding GoalPercentAway}" FontWeight="Bold" Foreground="Gray" FontSize="18" VerticalAlignment="Center" Margin="15 0 20 0"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0 10 0 0" Background="#FFE2E2E2">
+                                        <TextBlock Text="{Binding Team1.Abbr}" FontWeight="Bold" Foreground="Gray" FontSize="18" VerticalAlignment="Center" Margin="15 0 0 0"/>
+                                        <ProgressBar x:Name="PbFGHome" Width="220" Margin="10 0 0 0" Foreground="#FF00C5FF" Background="Transparent"/>
+                                        <TextBlock Text="{Binding GoalPercentHome}" FontWeight="Bold" Foreground="Gray" FontSize="18" VerticalAlignment="Center" Margin="15 0 20 0"/>
+                                    </StackPanel>
                                 </StackPanel>
                             </Border>
-                            <Border BorderThickness="0.5" BorderBrush="Gray" Height="24">
-                                <StackPanel Orientation="Horizontal" Background="#FFEFEFEF">
-                                    <TextBlock Text="FG Made-Attempted" VerticalAlignment="Center" Margin="10 0"/>
-                                    <TextBlock Margin="160 0 0 0" Text="" Width="80"/>
-                                    <TextBlock Margin="50 0"/>
+
+                            <Border BorderThickness="0.7" BorderBrush="Gray" Margin="0 10 0 0">
+                                <StackPanel Height="100">
+                                    <TextBlock Text="Three Point %" FontSize="14" VerticalAlignment="Center" Margin="40 0 0 0"/>
+                                    <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                                        <TextBlock Text="{Binding Team.Abbr}" FontWeight="Bold" Foreground="Gray" FontSize="18" VerticalAlignment="Center" Margin="15 0 0 0"/>
+                                        <ProgressBar x:Name="Pb3PtAway" Width="220" Margin="10 0 0 0" Foreground="#FF00C5FF" Background="Transparent" />
+                                        <TextBlock Text="{Binding ThreeGoalPercentAway}" FontWeight="Bold" Foreground="Gray" FontSize="18" VerticalAlignment="Center" Margin="15 0 20 0"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0 10 0 0" Background="#FFE2E2E2">
+                                        <TextBlock Text="{Binding Team1.Abbr}" FontWeight="Bold" Foreground="Gray" FontSize="18" VerticalAlignment="Center" Margin="15 0 0 0"/>
+                                        <ProgressBar x:Name="Pb3PtHome" Width="220" Margin="10 0 0 0" Foreground="#FF00C5FF" Background="Transparent"/>
+                                        <TextBlock Text="{Binding ThreeGoalPercentHome}" FontWeight="Bold" Foreground="Gray" FontSize="18" VerticalAlignment="Center" Margin="15 0 20 0"/>
+                                    </StackPanel>
                                 </StackPanel>
                             </Border>
-                            <Border BorderThickness="0.5" BorderBrush="Gray" Height="24">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="3PT Made-Attempted" VerticalAlignment="Center" Margin="10 0"/>
-                                    <TextBlock Margin="160 0 0 0" Text="" Width="80"/>
-                                    <TextBlock Margin="50 0"/>
-                                </StackPanel>
-                            </Border>
-                            <Border BorderThickness="0.5" BorderBrush="Gray" Height="24">
-                                <StackPanel Orientation="Horizontal" Background="#FFEFEFEF">
-                                    <TextBlock Text="FT Made-Attempted" VerticalAlignment="Center" Margin="10 0"/>
-                                    <TextBlock Margin="160 0 0 0" Text="" Width="80"/>
-                                    <TextBlock Margin="50 0"/>
-                                </StackPanel>
-                            </Border>
-                            <Border BorderThickness="0.5" BorderBrush="Gray" Height="24">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="Rebounds" VerticalAlignment="Center" Margin="10 0"/>
-                                    <TextBlock Margin="160 0 0 0" Text="" Width="80"/>
-                                    <TextBlock Margin="50 0"/>
-                                </StackPanel>
-                            </Border>
-                            <Border BorderThickness="0.5" BorderBrush="Gray" Height="24">
-                                <StackPanel Orientation="Horizontal" Background="#FFEFEFEF">
-                                    <TextBlock Text="Assists" VerticalAlignment="Center" Margin="10 0"/>
-                                    <TextBlock Margin="160 0 0 0" Text="" Width="80"/>
-                                    <TextBlock Margin="50 0"/>
-                                </StackPanel>
-                            </Border>
-                            <Border BorderThickness="0.5" BorderBrush="Gray" Height="24">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="Steals" VerticalAlignment="Center" Margin="10 0"/>
-                                    <TextBlock Margin="160 0 0 0" Text="" Width="80"/>
-                                    <TextBlock Margin="50 0"/>
-                                </StackPanel>
-                            </Border>
-                            <Border BorderThickness="0.5" BorderBrush="Gray" Height="24">
-                                <StackPanel Orientation="Horizontal" Background="#FFEFEFEF">
-                                    <TextBlock Text="Blocks" VerticalAlignment="Center" Margin="10 0"/>
-                                    <TextBlock Margin="160 0 0 0" Text="" Width="80"/>
-                                    <TextBlock Margin="50 0"/>
-                                </StackPanel>
-                            </Border>
-                            <Border BorderThickness="0.5" BorderBrush="Gray" Height="24">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="Turnovers" VerticalAlignment="Center" Margin="10 0"/>
-                                    <TextBlock Margin="160 0 0 0" Text="" Width="80"/>
-                                    <TextBlock Margin="50 0"/>
-                                </StackPanel>
-                            </Border>
+
                         </StackPanel>
-                    </Grid>
-                    
+                    </StackPanel>
                 </TabItem>
                 <TabItem Header="Short Chart">
+                    <Grid>
+                        <Grid.Background>
+                            <ImageBrush ImageSource="/Resources/court.png"/>
+                        </Grid.Background>
 
+                        <Border BorderThickness="1" BorderBrush="Black" Margin="120 0 0 0" Width="200" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="{Binding Team.MainImage}" Width="50" Height="50"/>
+                                    <TextBlock Text="Starter" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="17"/>
+                                </StackPanel>
+                                <ListView x:Name="LvPlayerAway" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" d:ItemsSource="{d:SampleData ItemCount=5}" Background="Transparent">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal" Background="White" Width="180">
+                                                <Image Source="{Binding Player.MainImage}" Width="40" Height="40"/>
+                                                <TextBlock Text="{Binding Player.Name}" Margin="5 0 0 0" VerticalAlignment="Center" FontSize="10"/>
+                                                <TextBlock Text="{Binding ShirtNumber,StringFormat='(#{0})'}" Margin="5 0 0 0" FontSize="10" VerticalAlignment="Center"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackPanel>
+                        </Border>
+
+                        <Image Source="{Binding Team1.MainImage}" Width="80" Height="80"/>
+
+                        <Border BorderThickness="1" BorderBrush="Black" Margin="0 0 120 0" Width="200" HorizontalAlignment="Right" VerticalAlignment="Center">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="{Binding Team1.MainImage}" Width="50" Height="50"/>
+                                    <TextBlock Text="Starter" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="17"/>
+                                </StackPanel>
+                                <ListView x:Name="LvPlayerHome" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" d:ItemsSource="{d:SampleData ItemCount=5}" Background="Transparent">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal" Background="White" Width="180">
+                                                <Image Source="{Binding Player.MainImage}" Width="40" Height="40"/>
+                                                <TextBlock Text="{Binding Player.Name}" Margin="5 0 0 0" VerticalAlignment="Center" FontSize="10"/>
+                                                <TextBlock Text="{Binding ShirtNumber,StringFormat='(#{0})'}" Margin="5 0 0 0" FontSize="10" VerticalAlignment="Center"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
                 </TabItem>
                 <TabItem Header="Log">
 

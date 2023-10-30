@@ -276,6 +276,7 @@
       <DependentUpon>NbaBaseModel.edmx</DependentUpon>
       <LastGenOutput>NbaBaseModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\court.png" />
     <Resource Include="Resources\person.png" />
     <Resource Include="Resources\lineup.jpg" />
   </ItemGroup>

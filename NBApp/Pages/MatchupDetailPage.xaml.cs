@@ -28,6 +28,20 @@ namespace NBApp.Pages
             contextMatchup = matchup;
             DataContext = contextMatchup;
             App.TitlePage = "Matchup Detail";
+            PbFGAway.Value = contextMatchup.GoalPercentAway;
+            PbFGHome.Value = contextMatchup.GoalPercentHome;
+
+            Pb3PtAway.Value = contextMatchup.ThreeGoalPercentAway;
+            Pb3PtHome.Value = contextMatchup.ThreeGoalPercentHome;
+
+            LvPlayerAway.ItemsSource = App.DB.PlayerInTeam.Where(x => x.TeamId == contextMatchup.Team_Away).Take(5).ToList();
+
+            LvPlayerHome.ItemsSource = App.DB.PlayerInTeam.Where(x => x.TeamId == contextMatchup.Team_Home).Take(5).ToList();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }
